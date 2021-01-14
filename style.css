@@ -1,0 +1,294 @@
+/* CSS for Pricing Component With Toggle */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+/* CSS Variables */
+:root {
+    --mobile_width: 375px;
+    --desktop_width: 1440px;
+    --linear_gradient_236: hsl(236, 72%, 79%);
+    --linear_gradient_237: hsl(237, 63%, 64%);
+    --very_light_blue: hsl(240, 78%, 98%);
+    --light_blue: hsl(234, 14%, 74%);
+    --blue: hsl(233, 13%, 49%);
+    --dark_blue: hsl(232, 13%, 33%);
+    --font_size: 15px;
+    --font_family: "Montserrat", sans-serif;
+    --font_weight: 700
+}
+
+body {
+    font-family: var(--font_family);
+    font-size: var(--font_size);
+    font-weight: var(--font_weight);
+    background-color: var(--very_light_blue);
+    color: var(--blue);
+    min-height: 100vh;
+    position: relative;
+}
+
+
+
+/* Head */
+ .head {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 3em 0;
+ }
+
+ .head h1 { 
+     margin-bottom: 2em;
+     font-size: 1.8rem;
+ }
+
+ .head .pricing_switch {
+     display: flex;
+     align-items: center;
+     justify-content: space-around;
+     width: 230px;
+ }
+
+ .pricing_switch p {
+     color: var(--light_blue);
+ }
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 25px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        var(--linear_gradient_236) 0%,
+        var(--linear_gradient_237) 100%
+    )
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider { 
+    background: linear-gradient(
+        90deg,
+        var(--linear_gradient_236) 0%,
+        var(--linear_gradient_237) 100%
+    ) 
+}
+
+input:focus + .slider { box-shadow: 0 0 1px #2196F3; }
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(17px);
+    -ms-transform: translateX(17px);
+    transform: translateX(17px);
+}
+
+.slider.round { border-radius: 34px; }
+
+.slider.round:before { border-radius: 50%; }
+
+.slider:hover,
+input:checked + .slider:hover { background: var(--linear_gradient_236); }
+
+.hide { display: none; }
+
+/* Card */
+.cards {
+    width: 90%;
+    margin: 0 auto 3em;
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    padding: 1.5rem;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
+    margin: .7rem 0;
+}
+
+.card p {
+    font-size: 3rem;
+    padding: 1.2rem 0;
+    letter-spacing: 1px;
+}
+
+.card p::first-letter {
+    font-size: 1.5rem;
+    vertical-align: middle;
+    padding-right: 2px;
+}
+
+.card ul { padding-bottom: 1.3rem; }
+
+.card ul li {
+    padding: 1em 0;
+    font-size: .8rem; 
+}
+
+.card button {
+    width: 100%;
+    font-size: .6rem;
+    font-weight: 700;
+    height: 30px;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    background: linear-gradient(
+        90deg,
+        var(--linear_gradient_236) 0%,
+        var(--linear_gradient_237) 100%
+    );
+    border-radius: 5px;
+    border: none;
+    color: white; 
+    transition: all 1s;
+}
+
+.card button:hover { cursor: pointer; }
+
+.side_card { background:white; }
+
+.side_card button:hover {
+    background: white;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+}
+
+.middle_card {
+    background: linear-gradient(
+        160deg,
+        var(--linear_gradient_236),
+        var(--linear_gradient_237)
+    );
+    color: white;
+}
+
+.middle_card button { 
+    background: white; 
+    color: var(--blue);
+}
+
+.middle_card button:hover {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.basic ul li:first-of-type {
+    border-top: .5px solid hsla(234, 14%, 49%, .8);
+    border-bottom: .5px solid hsla(234, 14%, 49%, .6);
+}
+
+.basic ul li:last-of-type {
+    border-top: .5px solid hsla(234, 14%, 49%, .4);
+    border-bottom: .5px solid hsla(234, 14%, 49%, .2);
+}
+
+.professional ul li:first-of-type {
+    border-top: .5px solid rgba(255, 255, 255, .8);
+    border-bottom: .5px solid  rgba(255, 255, 255, .6);
+}
+
+.professional ul li:last-of-type {
+    border-top: .5px solid rgba(255, 255, 255, .4);
+    border-bottom: .5px solid  rgba(255, 255, 255, .2);
+}
+
+.master ul li:first-of-type {
+    border-top: .5px solid hsla(234, 14%, 49%, .2);
+    border-bottom: .5px solid hsla(234, 14%, 49%, .4);
+}
+
+.master ul li:last-of-type {
+    border-top: .5px solid hsla(234, 14%, 49%, .6);
+    border-bottom: .5px solid hsla(234, 14%, 49%, .8);
+}
+
+/* Attribution */
+.attribution {
+    padding: 0 1em .5em;
+}
+
+/* SVG */
+svg.top_right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -10;
+}
+svg.bottom_left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -10;
+}
+
+/* Media screens */
+
+@media screen and ( min-width: 375px ) {
+    .cards {
+        max-width: 375px;
+    }
+}
+
+@media screen and ( min-width: 1000px ) {
+    .container {
+        height: 96vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cards {
+        flex-direction: row;
+        justify-content: center;
+        width: 900px
+    }
+
+    .card {
+        min-width: calc( 850px / 3 )
+    }
+
+    .side_card {
+        height: 330px;
+        margin-top: 1.7rem;
+    }
+
+    .middle_card {
+        padding: 2.5rem 1.5rem;
+        height: 362px;
+    }
+}
+
+/*
+TODO:
+
+-text bigger??
+
+*/
